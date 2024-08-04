@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{balance.owner}} - info </title>
+    <link rel="stylesheet" href="static/info.css">
 </head>
 <body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
 
-
-    {% block content %}
-    <h2>{% block title %} {{ b.owner }} {% endblock %}</h2>
-    <span class="badge badge-primary">{{ b.total }}</span>
-    {% endblock %}
-
+                <h1 class="card-title">Owner :{{balance.owner}}</h1>
+                <h2 class="card-subtitle mb-2 text-muted">Author: {{balance.total}}</h2>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
