@@ -25,6 +25,6 @@ def get_balance_info(balance_id):
             selected_balance = item
             break
     if selected_balance:
-        return render_template("info.html", balance=selected_balance)
+        return render_template("info.html", balance=selected_balance, balance_id=balance_id)
     else:
         return f"Could not found balance with id : {item}"

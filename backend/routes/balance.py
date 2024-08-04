@@ -1,28 +1,48 @@
 from main import app
 from db import Session, Balance
+from schemas import BalanceData
+from sqlalchemy import select, func
+from flask_login import login_required, current_user
 
-from sqlalchemy import select
+from sqlalchemy.sql.functions import sum
+
+from flask import jsonify, request
+
+
+@app.get("/get_total_sum")
+@login_required
+def get_total_sum():
+    user_id = request.args.get("user_id")
+    if not user_id:
+        return jsonify({"error": "User ID not provided"}), 400
+
+    with Session.begin() as session:
+        stmt = select(func.sum(Balance.total)).where(Balance.owner == user_id)
+        total_sum = session.execute(stmt).scalar_one_or_none()
+    
+    return jsonify({"total_sum": total_sum or 0})
+
+
+# @app.get("/get_total_sum")
+# @login_required
+# def get_total_sum():
+#     with Session.begin() as session:
+#         total_sum = session.execute(select(func.sum(Balance.total)).where(Balance.owner == current_user.email.split('@')[0])).scalar()
+#         return total_sum
 
 
 
 @app.get("/get_balances")
 def get_balance():
     with Session.begin() as session:
-        balance1 = Balance(owner="Leonid", total=1298.7)
-        balance2 = Balance(owner="John", total=457.2)
-        balance3 = Balance(owner="Patric", total=711)
-        balance4 = Balance(owner="Json", total=123)
-        balance5 = Balance(owner="Mary", total=417.9)
-        session.add(balance1)
-        session.add(balance2)
-        session.add(balance3)
-        session.add(balance4)
-        session.add(balance5)
-
         balances = session.scalars(select(Balance)).all()
+        balances = [BalanceData.model_validate(balance) for balance in balances]
+        return balances
+    
 
-        return [{
-            "id": balance.id,
-            "owner": balance.owner,
-            "total": balance.total
-        } for balance in balances]
+@app.post("/append_balance")
+def append_balance(data: BalanceData):
+    with Session.begin() as session:
+        balance = Balance(**data.model_dump())
+        session.add(balance)
+        return balance
