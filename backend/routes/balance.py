@@ -1,9 +1,7 @@
-from fastapi import FastAPI
-from db import Balance, Session
+from main import app
+from db import Session, Balance
+
 from sqlalchemy import select
-
-
-app = FastAPI()
 
 
 

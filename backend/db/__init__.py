@@ -15,7 +15,8 @@ def up():
 def down():
     Base.metadata.drop_all(engine)
 
-from .models import Balance, User
+
+from .models import Balance
 
 
 down()
