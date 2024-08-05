@@ -29,7 +29,6 @@ from os import getenv
 from flask import render_template
 from flask_login import current_user, login_required
 from requests import get
-
 from .. import app
 
 BACKEND_URL = getenv("BACKEND_URL")
@@ -37,10 +36,9 @@ BACKEND_URL = getenv("BACKEND_URL")
 @app.get("/")
 @login_required
 def index():
-    balances = {
-        "balances": get(f"{BACKEND_URL}/get_balances").json()
-    }
+
     nickname = ""
+
     # total_sum = 0
     
     if current_user.is_authenticated:
@@ -51,6 +49,10 @@ def index():
         response = get(f"{BACKEND_URL}/get_total_sum", json=data)
         if response.status_code == 200:
             total_sum = response.json()
+            balances = {
+                "balances": get(f"{BACKEND_URL}/get_balances", json=data)
+            }  
+            
             return render_template("index.html", nickname=nickname, total_sum=total_sum, **balances)
         else:
             return response.status_code
