@@ -1,1 +1,1 @@
-from .balance import BalanceData
+from .balance import BalanceData, TotalSum
