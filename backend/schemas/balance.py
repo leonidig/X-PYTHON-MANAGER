@@ -7,6 +7,7 @@ class BalanceData(BaseModel):
     owner: str
     total: float
     date: str
+    theme: str
 
 class TotalSum(BaseModel):
     current_user: str

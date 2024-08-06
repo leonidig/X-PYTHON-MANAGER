@@ -77,6 +77,28 @@
             font-size: 1rem;
             color: #ccc;
         }
+
+        .themes {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .themes h2 {
+            margin-bottom: 1rem;
+        }
+
+        .themes .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +110,27 @@
         <div class="info-text">
             if it is a profit, enter a number<br>
             If it is a loss, write a "-" sign before entering the amount
+        </div>
+        <div class="themes">
+            <h2>Select source</h2>
+            <div class="radio-group">
+                <label for="sports">
+                    <input type="radio" id="sports" name="choice" value="Sports">
+                    Sports
+                </label>
+                <label for="science">
+                    <input type="radio" id="science" name="choice" value="Science">
+                    Science
+                </label>
+                <label for="games">
+                    <input type="radio" id="games" name="choice" value="Games">
+                    Games
+                </label>
+                <label for="nature">
+                    <input type="radio" id="nature" name="choice" value="Nature">
+                    Nature
+                </label>
+            </div>
         </div>
     </form>
 </body>

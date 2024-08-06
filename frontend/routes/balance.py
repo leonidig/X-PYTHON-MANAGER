@@ -25,7 +25,8 @@ def append_balance():
     data = {
         "owner": current_user.email.split('@')[0],
         "total": request.form['append_number'],
-        "date": now[:16]
+        "date": now[:16],
+        "theme": request.form['choice']
     }
     balance = requests.post(f"{BACKEND_URL}/append_balance", json=data)
     if balance.status_code == 200:

@@ -8,3 +8,4 @@ class Balance(Base):
     owner: Mapped[str]
     total: Mapped[float]
     date: Mapped[str]
+    theme: Mapped[str]
