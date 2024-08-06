@@ -30,6 +30,7 @@ from flask import render_template
 from flask_login import current_user, login_required
 from requests import get
 from .. import app
+from ..db import User
 
 BACKEND_URL = getenv("BACKEND_URL")
 

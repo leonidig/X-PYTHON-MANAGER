@@ -27,8 +27,12 @@ def get_total_sum(data: TotalSum):
 def append_balance(data: BalanceData):
     with Session.begin() as session:
         balance = Balance(**data.model_dump())
-        session.add(balance)
-        return balance
+        print(data.untouchable)
+        if data.total > data.untouchable:
+            return "Tran"
+        else:
+            session.add(balance)
+            return balance
 
 
 

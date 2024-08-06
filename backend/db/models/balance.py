@@ -9,3 +9,4 @@ class Balance(Base):
     total: Mapped[float]
     date: Mapped[str]
     theme: Mapped[str]
+    untouchable: Mapped[float]

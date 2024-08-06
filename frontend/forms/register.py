@@ -4,6 +4,7 @@ from wtforms import (
     StringField,
     PasswordField,
     SubmitField,
+    FloatField
 )
 from wtforms.validators import (
     DataRequired,
@@ -16,5 +17,5 @@ class RegisterForm(FlaskForm):
     email = EmailField(validators=[DataRequired(), Email(),])
     password = PasswordField(validators=[DataRequired(),])
     password_confirm = PasswordField(validators=[DataRequired(), EqualTo("password")])
-    untouchable = StringField(validators=[DataRequired(),])
+    untouchable = FloatField(validators=[DataRequired(),])
     submit = SubmitField("Register")

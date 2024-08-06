@@ -8,6 +8,10 @@ class BalanceData(BaseModel):
     total: float
     date: str
     theme: str
+    untouchable: float
+
+
 
 class TotalSum(BaseModel):
     current_user: str
+    
