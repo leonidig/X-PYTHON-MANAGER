@@ -17,14 +17,10 @@ BACKEND_URL = getenv("BACKEND_URL")
 
 @app.get("/balance/<int:balance_id>")
 @login_required
-def get_balance_info(balance_id):
-    balances = get(f"{BACKEND_URL}/get_balances").json()
-    selected_balance = None
-    for item in balances:
-        if item.get('id')== balance_id:
-            selected_balance = item
-            break
-    if selected_balance:
+def balance(balance_id):                    
+    balances_response = get(f"{BACKEND_URL}/balance/{balance_id}")
+    if balances_response.status_code == 200:
+        selected_balance = balances_response.json()
         return render_template("info.html", balance=selected_balance, balance_id=balance_id)
-    else:
-        return f"Could not found balance with id : {item}"
+    return (f"Error {balances_response.status_code}")
+    

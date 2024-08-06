@@ -105,12 +105,14 @@
 
     <div class="container">
         <h1 class="header-title">{% block title %} Welcome to Balance - Manager {% endblock %}</h1>
+        {% if balances %}
         {% block content %}
             {% for balance in balances %}
                 <a href="/balance/{{ balance.id }}">{{ balance.owner }}</a>
-                <p>{{ balance.total }}</p>
+                <p>{{ balance.total }}$</p>
             {% endfor %}
         {% endblock %}
+        {% endif %}
     </div>
 
 

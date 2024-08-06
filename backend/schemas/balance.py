@@ -6,6 +6,7 @@ class BalanceData(BaseModel):
     id: Optional[int] = None
     owner: str
     total: float
+    date: str
 
 class TotalSum(BaseModel):
     current_user: str

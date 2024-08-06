@@ -29,3 +29,12 @@ def append_balance(data: BalanceData):
         balance = Balance(**data.model_dump())
         session.add(balance)
         return balance
+
+
+
+@app.get("/balance/{balance_id}")
+def get_balance(balance_id):
+    with Session.begin() as session:
+        balance = session.scalar(select(Balance).where(Balance.id == balance_id))
+        balance = BalanceData.model_validate(balance)
+        return balance

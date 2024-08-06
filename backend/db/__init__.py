@@ -19,6 +19,6 @@ def down():
 from .models import Balance
 
 
-# down()
+down()
 up()
 

@@ -50,10 +50,12 @@ def index():
         if response.status_code == 200:
             total_sum = response.json()
             balances = {
-                "balances": get(f"{BACKEND_URL}/get_balances", json=data)
-            }  
-            
-            return render_template("index.html", nickname=nickname, total_sum=total_sum, **balances)
+                "balances": get(f"{BACKEND_URL}/get_balances", json=data).json()
+            }
+            # print("*" * 80)
+            # print(balances)
+            return render_template('index.html', **balances, nickname=nickname, total_sum=total_sum)
+           
         else:
             return response.status_code
         
