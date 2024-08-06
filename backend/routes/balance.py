@@ -26,13 +26,17 @@ def get_total_sum(data: TotalSum):
 @app.post("/append_balance")
 def append_balance(data: BalanceData):
     with Session.begin() as session:
-        balance = Balance(**data.model_dump())
-        print(data.untouchable)
-        if data.total > data.untouchable:
-            return "Tran"
-        else:
+        user_balance = session.scalar(select(Balance).where(Balance.owner == data.owner))
+        if user_balance == None:
+            user_balance = 0
+            data["total_sum"] = user_balance + data.total
+        data["total_sum"] = user_balance.total_sum + data.total
+        if data.total_sum > data.untouchable:
+            balance = Balance(**data.model_dump())
             session.add(balance)
             return balance
+        else:
+            return "Error"
 
 
 
