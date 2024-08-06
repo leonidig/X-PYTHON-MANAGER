@@ -8,6 +8,7 @@ class User(Base):
     nickname: Mapped[str]
     email: Mapped[str]
     password: Mapped[str]
+    untouchable: Mapped[str]
 
 
     def is_active(self) -> bool:

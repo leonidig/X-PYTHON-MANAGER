@@ -40,10 +40,12 @@ def register_post():
                flash("User exists!")
                return redirect(url_for('register'))
            pwd = form.password.data
+           utchbl = form.untouchable.data
            user = User(
                nickname = form.email.data.split('@')[0],
                email = form.email.data,
                password = pwd,
+               untouchable = utchbl
            )
            session.add(user)
        return redirect(url_for('login'))

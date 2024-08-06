@@ -16,5 +16,5 @@ class RegisterForm(FlaskForm):
     email = EmailField(validators=[DataRequired(), Email(),])
     password = PasswordField(validators=[DataRequired(),])
     password_confirm = PasswordField(validators=[DataRequired(), EqualTo("password")])
-
+    untouchable = StringField(validators=[DataRequired(),])
     submit = SubmitField("Register")
