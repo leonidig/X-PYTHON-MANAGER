@@ -9,6 +9,7 @@ class BalanceData(BaseModel):
     date: str
     theme: str
     untouchable: float
+    total_sum: Optional[float] = None
 
 
 

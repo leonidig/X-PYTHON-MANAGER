@@ -10,3 +10,4 @@ class Balance(Base):
     date: Mapped[str]
     theme: Mapped[str]
     untouchable: Mapped[float]
+    total_sum: Mapped[float]
