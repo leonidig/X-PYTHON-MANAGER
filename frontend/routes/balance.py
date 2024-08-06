@@ -38,7 +38,9 @@ def append_balance():
             "theme": request.form['choice'],
             "untouchable": untouchable.untouchable,
         }
-        balance = post(f"{BACKEND_URL}/append_balance", json=data)#.json()
+        print("*" * 80)
+        print(data["total"])
+        balance = post(f"{BACKEND_URL}/append_balance", json=data)
 
         if balance.status_code == 200:
             return redirect(url_for("index"))
