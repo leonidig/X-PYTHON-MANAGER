@@ -3,5 +3,6 @@ from . import (
                login,
                info,
                balance,
-               themes
+               themes,
+               finances_sort
             )
