@@ -1,0 +1,34 @@
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    background-color: #444;
+    border: none;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #ff6347;
+}
+
+.card-subtitle {
+    color: #bbb;
+}
+
+.card-body {
+    text-align: center;
+}
+
+footer {
+    background-color: #444;
+    color: #ccc;
+    padding: 1rem;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

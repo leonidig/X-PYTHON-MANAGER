@@ -1,7 +1,7 @@
 from main import app
 from db import Session, Balance
 from schemas import BalanceData, TotalSum
-from sqlalchemy import select, func
+from sqlalchemy import select, func, and_
 
 from sqlalchemy.sql.functions import sum
 
@@ -52,8 +52,8 @@ def get_balance(balance_id):
 
 
 @app.get("/theme/{balance_themes}")
-def get_theme(balance_themes):
+def get_theme(balance_themes, data:TotalSum):
     with Session.begin() as session:
-        selected_theme = session.scalars(select(Balance).where(Balance.theme == balance_themes)).all()
+        selected_theme = session.scalars(select(Balance).where(and_(Balance.theme == balance_themes, Balance.owner == data.current_user))).all()
         selected_theme = [BalanceData.model_validate(balance) for balance in selected_theme]
         return selected_theme
