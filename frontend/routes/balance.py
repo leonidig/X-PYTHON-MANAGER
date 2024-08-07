@@ -12,15 +12,13 @@ from .. db import User, Session
 BACKEND_URL = getenv("BACKEND_URL")
 
 
-@app.get("/append_balance")
-def get_append_balance():
-    return render_template("append_balance.html")
 
 
 
 @app.post("/append_balance")
 @login_required
 def append_balance():
+    global untouchable
     now = str(datetime.now())
     nickname = current_user.email.split('@')[0]
     with Session.begin() as session:
@@ -31,6 +29,7 @@ def append_balance():
         response = get(f"{BACKEND_URL}/get_total_sum", json=data)
         if response.status_code == 200:
             total_sum = response.json()
+
         data = {
             "owner": current_user.email.split('@')[0],
             "total": request.form['append_number'],
@@ -38,10 +37,20 @@ def append_balance():
             "theme": request.form['choice'],
             "untouchable": untouchable.untouchable,
         }
-        print("*" * 80)
-        print(data["total"])
-        balance = post(f"{BACKEND_URL}/append_balance", json=data)
 
+
+        balance = post(f"{BACKEND_URL}/append_balance", json=data)
+        
         if balance.status_code == 200:
             return redirect(url_for("index"))
         return f"Error {balance.status_code}"
+    
+
+@app.get("/append_balance")
+def get_append_balance():
+    nickname = current_user.email.split('@')[0]
+    with Session.begin() as session:
+        untouchable = session.scalar(select(User).where(User.email == current_user.email))
+        untouchable_var = untouchable.untouchable
+
+    return render_template("append_balance.html", untouchable_var=untouchable_var)

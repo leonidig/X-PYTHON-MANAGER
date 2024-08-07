@@ -1,1 +1,7 @@
-from . import default, login, info, balance
+from . import (
+               default,
+               login,
+               info,
+               balance,
+               themes
+            )

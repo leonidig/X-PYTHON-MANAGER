@@ -48,3 +48,12 @@ def get_balance(balance_id):
         balance = session.scalar(select(Balance).where(Balance.id == balance_id))
         balance = BalanceData.model_validate(balance)
         return balance
+    
+
+
+@app.get("/theme/{balance_themes}")
+def get_theme(balance_themes):
+    with Session.begin() as session:
+        selected_theme = session.scalars(select(Balance).where(Balance.theme == balance_themes)).all()
+        selected_theme = [BalanceData.model_validate(balance) for balance in selected_theme]
+        return selected_theme

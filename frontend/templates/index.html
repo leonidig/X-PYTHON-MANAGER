@@ -23,6 +23,9 @@
         .navbar {
             background-color: #444;
             padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar-brand, .nav-link {
@@ -93,12 +96,23 @@
             width: 100%;
             bottom: 0;
         }
+
+        .dropdown-content {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Balance-Manager</a>
-        <div class="collapse navbar-collapse">
+        <div class="navbar-collapse collapse">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home</a>
@@ -114,13 +128,23 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <li class="dropdown">
+                    <div class="dropdown-content">
+                        <form id="dropdownForm" action="#" method="POST">
+                            <input type="hidden" id="dropdownValue" name="dropdownValue">
+                            <button type="button" onclick="submitDropdownForm('Sports')">Sport</button>
+                            <button type="button" onclick="submitDropdownForm('Nature')">Nature</button>
+                            <button type="button" onclick="submitDropdownForm('Games')">Games</button>
+                            <button type="button" onclick="submitDropdownForm('Science')">Science</button>
+                        </form>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <i class="fas fa-user"> {{ nickname }}</i>
                 </li>
                 <li class="nav-item">
                     <i>Total Sum: {{ total_sum }} $</i>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -142,7 +166,13 @@
     <footer>
         &copy; 2024 Balance-Manager. All rights reserved.
     </footer>
-
+    
+    <script>
+        function submitDropdownForm(theme) {
+            document.getElementById('dropdownValue').value = theme;
+            document.getElementById('dropdownForm').action = `/theme/${theme}`;
+            document.getElementById('dropdownForm').submit();
+        }
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

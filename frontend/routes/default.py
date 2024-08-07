@@ -5,7 +5,7 @@ from requests import get
 from .. import app
 from ..db import User
 
-BACKEND_URL = getenv("BACKEND_URL")
+BACKEND_URL = getenv("BACKEND_URL")# "http://127.0.0.1:8000"
 
 @app.get("/")
 @login_required
