@@ -15,7 +15,20 @@ def profit():
     data = {
         "current_user": nickname
     }
+
     profit_response = get(f"{BACKEND_URL}/profit", json=data)
     if profit_response.status_code == 200:
         profit = profit_response.json()
-        return render_template("finance_sort.html", profit=profit)
+        return render_template("profit.html", profit=profit)
+    
+
+@app.get("/loss")
+def loss():
+    nickname = current_user.email.split("@")[0]
+    data = {
+        "current_user": nickname
+    }
+    loss_response = get(f"{BACKEND_URL}/loss", json=data)
+    if loss_response.status_code == 200:
+        loss = loss_response.json()
+        return render_template("loss.html", loss=loss)

@@ -62,6 +62,15 @@ def get_theme(balance_themes, data:TotalSum):
 @app.get("/profit")
 def profit(data: TotalSum):
     with Session.begin() as session:
-        profit = session.scalars(select(Balance).where(and_(Balance.total > 0, Balance.owner == data.current_user))).all()
+        profit = session.scalars(select(Balance).where(and_(Balance.total > 0,
+                                                            Balance.owner == data.current_user))).all()
         profit = [BalanceData.model_validate(balance) for balance in profit]
         return profit
+    
+@app.get("/loss")
+def loss(data: TotalSum):
+    with Session.begin() as session:
+        loss = session.scalars(select(Balance).where(and_(Balance.total < 0,
+                                                           Balance.owner == data.current_user))).all()
+        loss = [BalanceData.model_validate(balance) for balance in loss]
+        return loss
