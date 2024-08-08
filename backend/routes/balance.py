@@ -43,9 +43,9 @@ def append_balance(data: BalanceData):
 
 
 @app.get("/balance/{balance_id}")
-def get_balance(balance_id):
+def get_balance(balance_id, data:TotalSum):
     with Session.begin() as session:
-        balance = session.scalar(select(Balance).where(Balance.id == balance_id))
+        balance = session.scalar(select(Balance).where(and_(Balance.id == balance_id, Balance.owner == data.current_user)))
         balance = BalanceData.model_validate(balance)
         return balance
     

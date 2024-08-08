@@ -20,7 +20,8 @@ def profit():
     if profit_response.status_code == 200:
         profit = profit_response.json()
         return render_template("profit.html", profit=profit)
-    
+    error_code = profit_response.status_code
+    return render_template("error.html", error_code=error_code)
 
 @app.get("/loss")
 def loss():

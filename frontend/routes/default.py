@@ -31,4 +31,5 @@ def index():
             return render_template('index.html', **balances, nickname=nickname, total_sum=total_sum)
            
         else:
-            return response.status_code
+            error_code = response.status_code
+            return render_template("error.html", error_code=error_code)

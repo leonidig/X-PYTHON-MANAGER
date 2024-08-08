@@ -42,7 +42,8 @@ def append_balance():
         
         if balance.status_code == 200:
             return redirect(url_for("index"))
-        return f"Error {balance.status_code}"
+        error_code = balance.status_code
+        return render_template("error.html", error_code=error_code)
     
 
 @app.get("/append_balance")
@@ -51,5 +52,4 @@ def get_append_balance():
     with Session.begin() as session:
         untouchable = session.scalar(select(User).where(User.email == current_user.email))
         untouchable_var = untouchable.untouchable
-
     return render_template("append_balance.html", untouchable_var=untouchable_var)

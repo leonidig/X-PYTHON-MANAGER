@@ -28,5 +28,6 @@ def themes(balance_themes):
         else:
             theme = None
         return render_template("themes.html", selected_theme=selected_theme, theme=theme)
-    # return "Error fetching theme data", select_theme_responce.status_code
+    error_code = select_theme_responce.status_code
+    return render_template("error.html", error_code=error_code)
 
