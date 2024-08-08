@@ -4,5 +4,6 @@ from . import (
                info,
                balance,
                themes,
-               finances_sort
+               finances_sort,
+               search
             )

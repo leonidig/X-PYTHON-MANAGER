@@ -11,9 +11,15 @@ class BalanceData(BaseModel):
     theme: str
     untouchable: float
     total_sum: Optional[float] = None
+    comment: str
 
 
 
 class TotalSum(BaseModel):
     current_user: str
     
+
+
+class Search(BaseModel):
+    current_user: str
+    comment: str

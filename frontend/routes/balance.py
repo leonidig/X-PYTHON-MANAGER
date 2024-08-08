@@ -35,8 +35,8 @@ def append_balance():
             "date": now[:16],
             "theme": request.form['choice'],
             "untouchable": untouchable.untouchable,
+            "comment": request.form["comment"]
         }
-
 
         balance = post(f"{BACKEND_URL}/append_balance", json=data)
         

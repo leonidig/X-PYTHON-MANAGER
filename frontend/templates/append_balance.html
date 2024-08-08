@@ -12,11 +12,18 @@
         <label for="append_number">Enter the amount:</label>
         <input type="number" id="append_number" name="append_number" required>
         <p>Remember your untouchable balance - the one you entered when you registered - {{ untouchable_var }}</p>
+        
+        <!-- Comment Section -->
+        <label for="comment">Transaction Comment:</label>
+        <textarea id="comment" name="comment" placeholder="Enter your transaction comment here..."></textarea>
+        
         <button type="submit">Send</button>
+        
         <div class="info-text">
             if it is a profit, enter a number<br>
             If it is a loss, write a "-" sign before entering the amount
         </div>
+        
         <div class="themes">
             <h2>Select source</h2>
             <div class="radio-group">
@@ -37,7 +44,6 @@
                     Nature
                 </label>
             </div>
-            
         </div>
     </form>
 </body>

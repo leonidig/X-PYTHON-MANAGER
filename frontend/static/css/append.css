@@ -1,3 +1,4 @@
+/* Existing styles */
 body {
     background-color: #333;
     color: #fff;
@@ -39,7 +40,7 @@ label {
     text-align: center;
 }
 
-input[type="number"] {
+input[type="number"], textarea {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -47,6 +48,13 @@ input[type="number"] {
     border-radius: 8px;
     font-size: 1.25rem;
     text-align: center;
+    color: #333;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
@@ -92,6 +100,3 @@ button:hover {
     align-items: center;
     gap: 0.5rem;
 }
-
-
-

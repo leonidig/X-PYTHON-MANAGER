@@ -11,3 +11,4 @@ class Balance(Base):
     theme: Mapped[str]
     untouchable: Mapped[float]
     total_sum: Mapped[float]
+    comment: Mapped[str]
