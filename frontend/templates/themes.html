@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/css/themes.css">
+    <title>Profit</title>
+    <link rel="stylesheet" href="/static/css/finance.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    {% if selected_theme %}
-        <h1>Selected Theme: {{ theme }}</h1>
-        <ul>
-        {% for balance in selected_theme %}
-            <li>
-                <h2 class="card-subtitle mb-2 text-muted">Total: {{ balance.total }}</h2>
-                <h2 class="card-subtitle mb-2 text-muted">Date: {{ balance.date }}</h2>
-            </li>
+    {% if profit %}
+        {% for p in profit %}
+        <div class="finance-item">
+            <h1>+ {{ p.total }}</h1>
+            <h2>{{ p.date }}</h2>
+            <h2>{{ p.theme }}</h2>
+        </div>    
         {% endfor %}
-        </ul>
-        <canvas id="myChart"></canvas>
-        <script id="data" type="application/json">{{ selected_theme | tojson | safe }}</script>
-        <script src="/static/js/chart.js"></script>
-    {% else %}
-        <p>No data available</p>
     {% endif %}
+
+    <!-- Chart Container -->
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- Script to pass data in JSON format -->
+    <script id="data" type="application/json">
+        {{ profit | tojson | safe }}
+    </script>
+
+    <script src="/static/js/chart_finance.js"></script>
 </body>
 </html>

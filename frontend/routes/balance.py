@@ -14,7 +14,6 @@ BACKEND_URL = getenv("BACKEND_URL")
 
 
 
-
 @app.post("/append_balance")
 @login_required
 def append_balance():

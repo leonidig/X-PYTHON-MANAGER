@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profit</title>
     <link rel="stylesheet" href="static/css/finance.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     {% if profit %}
@@ -16,6 +17,20 @@
         </div>    
         {% endfor %}
     {% endif %}
+
+    <div class="chart-container">
+        <canvas id="profitChart"></canvas> 
+    </div>
+    <div class="chart-container">
+        <canvas id="profitChart"></canvas>
+    </div>
     
+
+ 
+    <script id="data" type="application/json">
+        {{ profit | tojson | safe }}
+    </script>
+
+    <script src="static/js/chart_profit.js"></script>
 </body>
 </html>
