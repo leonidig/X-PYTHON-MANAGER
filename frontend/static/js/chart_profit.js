@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const jsonData = document.getElementById('data').textContent;
     const profitData = JSON.parse(jsonData);
 
-
     const themeTotals = {};
     profitData.forEach(item => {
         if (themeTotals[item.theme]) {
@@ -13,12 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     const themes = Object.keys(themeTotals);
     const totals = Object.values(themeTotals);
 
     // Создаем график
-    const ctx = document.getElementById('profitChart').getContext('2d');
+    const ctx = document.getElementById('profitChart').getContext('2d'); 
     const profitChart = new Chart(ctx, {
         type: 'bar',
         data: {
