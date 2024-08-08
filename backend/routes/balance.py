@@ -1,6 +1,6 @@
 from main import app
 from db import Session, Balance
-from schemas import BalanceData, TotalSum
+from schemas import BalanceData, TotalSum, DeleteBalance
 from sqlalchemy import select, func, and_
 
 from sqlalchemy.sql.functions import sum
@@ -74,3 +74,13 @@ def loss(data: TotalSum):
                                                            Balance.owner == data.current_user))).all()
         loss = [BalanceData.model_validate(balance) for balance in loss]
         return loss
+    
+
+
+@app.delete("/delet_balance/{balance_id}")
+def delete_balance(data: DeleteBalance):
+    with Session.begin() as session:
+        selected_balance = session.scalar(select(Balance).where(and_(Balance.owner == data.current_user,
+                                                                     Balance.id == data.balance_id)))
+        session.delete(selected_balance)
+        return "Balance succesfully deleted"

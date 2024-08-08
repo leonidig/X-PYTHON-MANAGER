@@ -2,7 +2,7 @@ from os import getenv
 
 from .. import app
 from flask_login import current_user
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from requests import get
 
 
@@ -22,3 +22,5 @@ def search():
         balances = get(f"{BACKEND_URL}/get_balances", json=data).json()
         filtered = [balance for balance in balances if query.lower() in balance['comment'].lower()]
         return render_template("index.html", balances = filtered, query = query)
+    elif query is None:
+        return redirect(url_for('index'))

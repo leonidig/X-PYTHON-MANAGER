@@ -5,5 +5,6 @@ from . import (
                balance,
                themes,
                finances_sort,
-               search
+               search,
+               delete
             )

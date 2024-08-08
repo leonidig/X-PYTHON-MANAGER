@@ -23,3 +23,9 @@ class TotalSum(BaseModel):
 class Search(BaseModel):
     current_user: str
     comment: str
+
+
+
+class DeleteBalance(BaseModel):
+    balance_id: int
+    current_user: str

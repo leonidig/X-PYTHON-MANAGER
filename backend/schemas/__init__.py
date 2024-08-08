@@ -1,5 +1,6 @@
 from .balance import (
                         BalanceData,
                         TotalSum,
-                        Search
+                        Search,
+                        DeleteBalance
                     )   
