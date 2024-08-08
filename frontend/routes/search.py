@@ -22,5 +22,5 @@ def search():
         balances = get(f"{BACKEND_URL}/get_balances", json=data).json()
         filtered = [balance for balance in balances if query.lower() in balance['comment'].lower()]
         return render_template("index.html", balances = filtered, query = query)
-    elif query is None:
+    else:
         return redirect(url_for('index'))

@@ -6,5 +6,6 @@ from . import (
                themes,
                finances_sort,
                search,
-               delete
+               delete,
+               about
             )

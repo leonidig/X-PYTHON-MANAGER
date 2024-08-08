@@ -1,0 +1,103 @@
+body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    flex: 1;
+}
+
+.block {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.block h2 {
+    margin-top: 0;
+    color: #ffa500;
+}
+
+.block p {
+    color: #c0c0c0;
+}
+
+.links a {
+    color: #ffa500;
+    text-decoration: none;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #ff8c00;
+}
+
+.home-block {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 40px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.home-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.home-button {
+    background-color: #ffa500;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.home-button:hover {
+    background-color: #ff8c00;
+    transform: translateY(-2px);
+}
+
+.home-button:active {
+    transform: translateY(1px);
+}
