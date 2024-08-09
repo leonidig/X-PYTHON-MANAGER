@@ -1,0 +1,10 @@
+flask
+flask-WTF
+flask-login
+fastapi
+sqlalchemy
+requests
+python-dotenv
+fastapi[standard]
+flask-testing
+unittest

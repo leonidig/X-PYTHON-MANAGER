@@ -1,4 +1,5 @@
 {% macro form_generate(form) %}
+<link rel="icon" href="static/images/logo.jpeg">
 <form action="" method="post">
     {{ form.hidden_tag() }} 
     {% for field in form if field.widget.input_type != 'hidden' %}

@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loss</title>
     <link rel="stylesheet" href="static/css/finance.css">
+    <link rel="icon" href="static/images/logo.jpeg">
 </head>
 <body>
     {% if loss %}
         {% for l in loss %}
             <div class="finance-item">
-                <h1>- {{ l.total }}</h1>
+                <h1>{{ l.total }}</h1>
                 <h2>{{ l.date }}</h2>
                 <h2>{{ l.theme }}</h2>
             </div>

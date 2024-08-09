@@ -26,6 +26,7 @@ def balance(balance_id):
     if balances_response.status_code == 200:
         selected_balance = balances_response.json()
         return render_template("info.html", balance=selected_balance, balance_id=balance_id)
-    error_code = balances_response.status_code
-    return render_template("error.html", error_code=error_code)
+    else:
+        error_code = balances_response.status_code
+        return render_template("error.html", error_code=error_code)
     
