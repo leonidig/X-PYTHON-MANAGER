@@ -15,3 +15,7 @@ Python
 
 # Javascript Technologies
 -Charts.js
+
+
+# How to run the project
+- Open https://t.me/Balance_1ManagerBot and get a guide
