@@ -1,5 +1,5 @@
 # Balance-Manager
-## Tthis is my second project for the x-payton tournament.
+## Tthis is my second project for the x-payton tournament.This is where you can manage your finances. Sort them, get information from charts, there is a search function for your transaction. Incredible frontend and backend. Enjoy using it. 💰🏆⚡
 
 
 # About
@@ -18,4 +18,4 @@ Python
 
 
 # How to run the project
-- Open https://t.me/Balance_1ManagerBot and get a guide
+- Open [this](https://t.me/Balance_1ManagerBot) and get a guide
