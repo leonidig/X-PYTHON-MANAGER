@@ -3,10 +3,10 @@
 
 
 # About
-*Python
-*HTML
-*CSS
-*JAVASCRIPT
+|Python
+|HTML
+|CSS
+|JAVASCRIPT
 
 # Python Technologies
 - Flask
