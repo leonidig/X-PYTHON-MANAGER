@@ -1,17 +1,17 @@
 # Balance-Manager
-##Tthis is my second project for the x-payton tournament.
+## Tthis is my second project for the x-payton tournament.
 
 
-#About
+# About
 *Python
 *HTML
 *CSS
 *JAVASCRIPT
 
-#Python Technologies
+# Python Technologies
 - Flask
 - Fastapi
 - SQLAlchemy
 
-#Javascript Technologies
+# Javascript Technologies
 -Charts.js
