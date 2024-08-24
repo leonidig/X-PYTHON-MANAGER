@@ -19,3 +19,5 @@ Python
 
 # How to run the project
 - Open [this](https://t.me/Balance_1ManagerBot) and get a guide
+
+# I promise that if I win, I will support the project 
